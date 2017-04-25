@@ -14,9 +14,13 @@ $(document).ready(function(){
     $('.b-types__item').click(function(){
       marks.find(".active").removeClass(".active")
       year.find(".active").removeClass(".active")
+      console.log(year.siblings('.select-search-input'));
       var choice = $('[name="type_tech"]:checked');
        choice = "evaluate-form/brands?type_id="+ choice.attr('value');
       infoGet(choice, marks);
+      $('.select-search-input').val('')
+      year.siblings('.select-search-input').prop('disabled', true);
+      models.siblings('.select-search-input').prop('disabled', true);
     });
     marks.click(function(){
       var elem = $(this);
@@ -24,6 +28,7 @@ $(document).ready(function(){
         var choice = "evaluate-form/years?brand_id=" + elem.find(".active").attr("value");
           console.log("change");
           infoGet(choice, year);
+          year.siblings('.select-search-input').removeAttr("disabled");
       },100); 
     });
     year.click(function(){
@@ -31,7 +36,7 @@ $(document).ready(function(){
       setTimeout(function(){
         var choice = "evaluate-form/models?brand_id=" + marks.find(".active").attr("value")+"&year="+elem.find(".active").attr("value");
         infoGet(choice, models);
-        console.log("marks");
+        models.siblings('.select-search-input').removeAttr("disabled");
       },100);
     });
     function locationGet(){
@@ -54,6 +59,7 @@ $(document).ready(function(){
     //search for an item
     var selector = $(this).next('.select-search');
     var search_for = $(this).val().trim();
+    search_for = search_for.charAt(0).toUpperCase() + search_for.substr(1);
     selector.find('option').addClass('hidden');
     var matches = selector.find('option:contains("'+search_for+'")');
     selector.find('.no-results').remove();

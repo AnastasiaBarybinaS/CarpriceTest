@@ -22,11 +22,13 @@
 			$('.b-anketa .b-container').addClass("animated");
 			setTimeout(function(){
 				$('.b-banner__video').get(0).play();
+				$('.b-banner__play').addClass("pause");
 				plaly = false;
 			},200)
 			
 		} else {
 			$('.b-banner__video').get(0).pause();
+			$('.b-banner__play').removeClass("pause");
 			plaly = true;
 			setTimeout(function(){
 				$('.b-banner__header').removeClass('fadeOutUp').addClass('fadeInDown');
@@ -151,7 +153,7 @@
 				            <a href="https://www.carprice.ru/about/faq/what-documents-are-required/">Необходимые документы</a>
 				        </li>
 				        <li class="b-menu__list--item">
-				            <a href="https://www.carprice.ru/about/testimonials/" class="js-scroll-to-block" data-target="#blockReviews">Отзывы</a>
+				            <a href="https://www.carprice.ru/about/testimonials/">Отзывы</a>
 				        </li>
 				        <li class="b-menu__list--item">
 				            <a href="https://www.carprice.ru/about/contact/">Контакты</a>
@@ -223,23 +225,35 @@
 								<div class="select-by-search">
 									<input class="select-search-input" placeholder="Марка">
 									<div class="select-search b-marks" data-kind="marks" id="id">
+										<option>Shevrolet</option>
+										<option>Volvo</option>
+										<option>BMV</option>
+										<option>Poll</option>
+										<option>Shevut</option>
 									</div>
 									<input type="hidden" class="selected" name="id" value="" >
-									<div class="close-selector"></div>
 								</div>
 								<div class="select-by-search">
-									<input class="select-search-input" placeholder="Год">
+									<input class="select-search-input" placeholder="Год" disabled>
 									<div class="select-search b-marks" data-kind="year" id="id">
+										<option>2016</option>
+										<option>2014</option>
+										<option>2013</option>
+										<option>2012</option>
+										<option>2011</option>
 									</div>
 									<input type="hidden" class="selected" name="id" value="" >
-									<div class="close-selector"></div>
 								</div>
 								<div class="select-by-search">
-									<input class="select-search-input" placeholder="Модель">
+									<input class="select-search-input" placeholder="Модель" disabled>
 									<div class="select-search b-model" data-kind="models" id="id">
+										<option>Shevrolet</option>
+										<option>Volvo</option>
+										<option>BMV</option>
+										<option>Poll</option>
+										<option>Shevut</option>
 									</div>
 									<input type="hidden" class="selected" name="id" value="" >
-									<div class="close-selector"></div>
 								</div>
 								<div class="select-by-search">
 							    	<input class="select-search-input" type="e-mail" class="b-e-mail" name="e-mail" placeholder="Ваш e-mail" />
@@ -530,11 +544,11 @@
 			<div class="b-block__header">Остались вопросы?</div>
 			<div class="row">
 				<div class="col-xs-4">
-					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion3">
+					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion1">
                         <span>Я могу продать на вторичном рынке и получить более высокую цену.</span>
                         <i class="questions__angle fa fa-angle-right"></i>
                     </div>
-                    <div id="modalQuestion3" class="modal fade">
+                    <div id="modalQuestion1" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <span class="modal-close" data-dismiss="modal"></span>
@@ -551,11 +565,11 @@
                     </div>
 				</div>
 				<div class="col-xs-4">
-					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion1">
+					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion2">
                         <span>Но я же могу получить более выгодную цену в Trade-In.</span>
                         <i class="questions__angle fa fa-angle-right"></i>
                     </div>
-                    <div id="modalQuestion1" class="modal fade" style="display: none;" aria-hidden="true">
+                    <div id="modalQuestion2" class="modal fade" style="display: none;" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <span class="modal-close" data-dismiss="modal"></span>
@@ -572,11 +586,11 @@
                     </div>
 				</div>
 				<div class="col-xs-4">
-					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion2">
+					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion3">
                         <span>Но можно же немного подождать и продать дороже.</span>
                         <i class="questions__angle fa fa-angle-right"></i>
                     </div>
-                    <div id="modalQuestion2" class="modal fade">
+                    <div id="modalQuestion3" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <span class="modal-close" data-dismiss="modal"></span>
@@ -593,42 +607,37 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-4">
-					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion3">
-                        <span>Я могу продать на вторичном рынке и получить более высокую цену.</span>
+					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion4">
+                        <span>Я находил негативные отзывы от тех, кто прошел аукцион.</span>
                         <i class="questions__angle fa fa-angle-right"></i>
                     </div>
-                    <div id="modalQuestion3" class="modal fade">
+                    <div id="modalQuestion4" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <span class="modal-close" data-dismiss="modal"></span>
-                                <div class="modal-header">Я могу продать на вторичном рынке и получить более высокую цену.</div>
+                                <div class="modal-header">Я находил негативные отзывы от тех, кто прошел аукцион.</div>
                                 <div class="modal-body">
-                                    <p>Самостоятельная продажа - это долгий процесс, сопряженный с потерей времени
-                                        и опасностью. Каждый день мы узнаем о новых мошеннических схемах, которые
-                                        могут оставить Вас без денег и без автомобиля.</p>
-                                    <p>Зачем рисковать и тратить нервы, если в CarPrice за пару часов Вы можете
-                                        получить адекватную цену?</p>
+                                    <p>Негативные отзывы, как правило, связаны с тем, что клиент не получил ту сумму, на которую рассчитывал. Специфика аукциона заключается в том, что максимальная ставка зависит от состояния автомобиля и его актуальности для дилеров. За 2 года мы помогли продать более 50 000 автомобилей.</p>
+                                    <p>Наша статистика говорит о том, что около 46% всех автомобилей, выставленных на аукцион, успешно продается. Кроме того, Вы можете проходить процедуру аукциона неограниченное количество раз, ведь все услуги компании для Вас абсолютно бесплатны.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 				</div>
 				<div class="col-xs-4">
-					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion1">
-                        <span>Но я же могу получить более выгодную цену в Trade-In.</span>
+					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion5">
+                        <span>У меня не погашен кредит на машину. Вы купите ее?</span>
                         <i class="questions__angle fa fa-angle-right"></i>
                     </div>
-                    <div id="modalQuestion1" class="modal fade" style="display: none;" aria-hidden="true">
+                    <div id="modalQuestion5" class="modal fade" style="display: none;" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <span class="modal-close" data-dismiss="modal"></span>
-                                <div class="modal-header">Но я же могу получить более выгодную цену в Trade-In.</div>
+                                <div class="modal-header">Мы готовы выкупить Ваш автомобиль даже в том случае, если кредит за нее еще не погашен.</div>
                                 <div class="modal-body">
-                                    <p>В CarPrice всего за пару часов Вы можете получить цену в среднем на 20% выше,
-                                        чем в trade-in. При этом Вы не связаны обязательствами по приобретению
-                                        нового авто, которое Вам не подходит.</p>
-                                    <p>В CarPrice Вы диктуете свои условия, а мы с радостью их выполняем абсолютно
-                                        бесплатно.</p>
+                                    <p>Обратите внимание, что схема продажи зависит от банка, в котором получен кредит. Если Ваш банк – банк «ВТБ», то вне зависимости от суммы задолженности, мы можем купить оформленный в кредит автомобиль по аккредитивной форме расчета.</p>
+                                    <p>Другой банк: мы сможем выкупить Ваш автомобиль, если задолженность по кредиту менее 70% от максимальной ставки на аукционе.</p>
+                                    <p>Обращаем Ваше внимание на то, что компания CarPrice не выкупает машины, если кредит оформлен в следующих банках: «Сетелем банк»,«Райффайзен банк»,«АйМани банк».</p>
                                 </div>
                             </div>
                         </div>
@@ -636,25 +645,29 @@
 				</div>
 				<div class="col-xs-4">
 					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion2">
-                        <span>Но можно же немного подождать и продать дороже.</span>
+                        <span>Какие документы необходимы?</span>
                         <i class="questions__angle fa fa-angle-right"></i>
                     </div>
                     <div id="modalQuestion2" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <span class="modal-close" data-dismiss="modal"></span>
-                                <div class="modal-header">Но можно же немного подождать и продать дороже.</div>
+                                <div class="modal-header">Для продажи вам необхожимы следующие документы</div>
                                 <div class="modal-body">
-                                    <p>Ни для кого не секрет, что стоимость авто уменьшается с возрастом. Поэтому,
-                                        ожидая сверхприбыльное предложение, Вы упускаете реальные деньги, которые
-                                        можете получить прямо сейчас.</p>
+                                    <ul>
+                                    	<li>Паспорт гражданина РФ</li>
+                                    	<li>ПТС</li>
+                                    	<li>Свидетельство о регистрации (при наличии)</li>
+                                    	<li>Кредитный договор с Банком и согласие банка на реализацию залогового имущества (при наличии)</li>
+                                    	<li>Ваши банковские реквизиты для получения оплаты по безналу (опция)</li>
+                             		</ul>
                                 </div>
                             </div>
                         </div>
                     </div>
 				</div>
 			</div>
-			<div class="b-questions__button"><button class="btn-green">Задать свой вопрос</button></div>
+			<div class="b-questions__button"><a href="https://www.carprice.ru/about/faq/"><button class="btn-green">Больше вопросов</button></a></div>
 		</div>
 	</div>
 	<div class="b-press">
