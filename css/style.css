@@ -1501,11 +1501,6 @@
         padding: 15px;
     }
 
-    .b-menu__list--item:first-child,
-    .b-menu__list--item:last-child {
-        width: 1%;
-    }
-
     .b-menu__list--item a {
         outline: 0;
         text-decoration: none;
@@ -1669,11 +1664,6 @@
     white-space: nowrap;
     width: 100px;
     padding: 15px;
-}
-
-.b-menu__list--item:first-child,
-.b-menu__list--item:last-child {
-    width: 1%;
 }
 
 .b-menu__list--item a {
@@ -1841,6 +1831,10 @@
   font-size: 16px;
   display:inline-block;
   width:100%;
+}
+.select-search-input.error,
+.b-control__indicator.error{
+	background: rgba(184, 56, 56, 0.32);
 }
 
 .select-search-input + .select-search {

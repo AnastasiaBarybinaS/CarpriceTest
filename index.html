@@ -223,41 +223,41 @@
 						    </div>
 						  	<div class="b-anketa__fieldblock">
 								<div class="select-by-search">
-									<input class="select-search-input" placeholder="Марка">
+									<input id="marks" class="select-search-input" placeholder="Марка">
 									<div class="select-search b-marks" data-kind="marks" id="id">
-										
+
 									</div>
 									<input type="hidden" class="selected" name="id" value="" >
 								</div>
 								<div class="select-by-search">
-									<input class="select-search-input" placeholder="Год" disabled>
+									<input id="year" class="select-search-input" placeholder="Год" disabled>
 									<div class="select-search b-marks" data-kind="year" id="id">
-										
+
 									</div>
 									<input type="hidden" class="selected" name="id" value="" >
 								</div>
 								<div class="select-by-search">
-									<input class="select-search-input" placeholder="Модель" disabled>
+									<input id="models" class="select-search-input" placeholder="Модель" disabled>
 									<div class="select-search b-model" data-kind="models" id="id">
 
 									</div>
 									<input type="hidden" class="selected" name="id" value="" >
 								</div>
 								<div class="select-by-search">
-							    	<input class="select-search-input" type="e-mail" class="b-e-mail" name="e-mail" placeholder="Ваш e-mail" />
+							    	<input id="email" class="select-search-input" type="e-mail" class="b-e-mail" name="e-mail" placeholder="Ваш e-mail" />
 							    </div>
 							</div>
 							<div class="row">
 								<div class="col-xs-6">
 									<label class="b-control b-control__checkbox">
 								  		  Я согласен с условиями пользовательского соглашения и положения конфиденциальности
-									      <input checked="checked" type="checkbox">
+									      <input checked="checked" type="checkbox" id="agreement">
 									      <div class="b-control__indicator"></div>
 								    </label>
 							    </div>
 								<div class="col-xs-6">
 									<div class="b-control__buttonblock">
-										<submit type="button" name="next" class="next action-button btn-green" value="Далее">Далее</submit>
+										<input type="submit" class="action-button btn-green" id="send" value="Далее" />
 									</div>
 								</div>
 							</div>
@@ -792,6 +792,7 @@
 </body>
 
 <script type="text/javascript" src="js/select_1.js"></script>
+<script type="text/javascript" src="js/formValid.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 
 <script>
