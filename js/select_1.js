@@ -1,0 +1,84 @@
+$(document).ready(function(){
+    var url = "evaluate-form/brands?type_id=0",
+      marks = $('[data-kind="marks"]'),
+      models = $('[data-kind="models"]'),
+      year = $('[data-kind="year"]');
+    
+    function infoGet(url, field){
+      $.get( "http://client.dev1.carprice.io/"+url, function( data ) {
+        for (var i=0; i<data.data.length;i++) {
+          field.append('<option value="'+data.data[i].value+'">'+data.data[i].text+'</option>')
+        }
+    });
+    }infoGet(url,marks);
+    $('.b-types__item').click(function(){
+      marks.find(".active").removeClass(".active")
+      year.find(".active").removeClass(".active")
+      var choice = $('[name="type_tech"]:checked');
+       choice = "evaluate-form/brands?type_id="+ choice.attr('value');
+      infoGet(choice, marks);
+    });
+    marks.click(function(){
+      var elem = $(this);
+      setTimeout(function(){
+        var choice = "evaluate-form/years?brand_id=" + elem.find(".active").attr("value");
+          console.log("change");
+          infoGet(choice, year);
+      },100); 
+    });
+    year.click(function(){
+      var elem = $(this);
+      setTimeout(function(){
+        var choice = "evaluate-form/models?brand_id=" + marks.find(".active").attr("value")+"&year="+elem.find(".active").attr("value");
+        infoGet(choice, models);
+        console.log("marks");
+      },100);
+    });
+    function locationGet(){
+      $.get( "http://client.dev1.carprice.io/api/v1.0.0/cities?api_token=bl1xzytbboh9qfqv5cfurx2fl10xspe1", function( data ) {
+        console.log(data.cities);
+        for (var i=0; i<data.cities.length;i++) {
+          $('.location__select .row').append('<div class="col-xs-4">'+
+                          '<div class="location__list--item js-select-city" data-city-id="'+data.cities[i].value+'" data-city-phone="'+  ""  +'">'+data.cities[i].text+'"</div></div>')
+        }
+      });
+    }locationGet();
+  $('body').on('focus', '.select-search-input', function(){
+    //expand selector
+    $(this).val('');
+    var selector = $(this).next('.select-search');
+    selector.css('display', 'block');
+    $(this).closest('.select-by-search').find('.close-selector').css('display','block');
+  });
+  $('body').on('input', '.select-search-input', function(){
+    //search for an item
+    var selector = $(this).next('.select-search');
+    var search_for = $(this).val().trim();
+    selector.find('option').addClass('hidden');
+    var matches = selector.find('option:contains("'+search_for+'")');
+    selector.find('.no-results').remove();
+    if (matches.length==0){
+      selector.append('<option class="unselectable no-results">No results.</option>')
+    }
+    matches.removeClass('hidden');
+  });
+  $('body').on('click', '.select-search>*:not(.unselectable)', function(){
+    //select an item
+    var value= $(this).attr('value'),
+        text= $(this).text().trim(),
+     selector_container=$(this).closest('.select-by-search');
+    selector_container.find('input.select-search-input').val(text);
+    //set this item as "active" and place it in the first spot
+    selector_container.find('option').removeClass('active');
+    $(this).addClass('active').prependTo(selector_container.find('.select-search'));
+    //collapse the selector
+    selector_container.find('.select-search').css('display', 'none');
+    $('.close-selector').css('display', 'none');
+   //update the value of the actual input
+    selector_container.find('.selected').val(value);
+  });
+  $('body').on('click', '.close-selector', function(){
+    $('.select-search').css('display', 'none');
+    $(this).css('display', 'none');
+  });
+});

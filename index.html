@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fontawesome.css">
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+  <script>
+  	var plaly = true;
+
+	function playVideo(){
+		console.log("playlu");
+		if (plaly){
+			$('.b-banner__header').removeClass('fadeInDown').addClass('fadeOutUp');
+			$('.b-banner__header').addClass("animated");
+			$('.b-anketa .b-container').removeClass('inUp').addClass('inDown');
+			$('.b-anketa .b-container').addClass("animated");
+			setTimeout(function(){
+				$('.b-banner__video').get(0).play();
+				plaly = false;
+			},200)
+			
+		} else {
+			$('.b-banner__video').get(0).pause();
+			plaly = true;
+			setTimeout(function(){
+				$('.b-banner__header').removeClass('fadeOutUp').addClass('fadeInDown');
+				$('.b-banner__header').addClass("animated");
+				$('.b-anketa .b-container').removeClass('inDown').addClass('inUp');
+				$('.b-anketa .b-container').addClass("animated");
+			},200)
+		}
+	}
+  </script>
+	<script type="text/javascript">
+		if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+		            var latitude = position.coords.latitude;
+		            var longitude = position.coords.longitude;
+
+		});
+		 
+		}
+	</script>
+</head>
+<body class="main">
+	<header>
+		<div class="b-header">
+			<div class="b-container">
+				<div class="b-header__left">
+					<a class="b-header__item b-header__menu--btn" id="jsHeaderMenuBtn" href="#"></a>
+					<a class="b-header__item b-header__logo" href="/"><span class="green">Car</span>Price</a>
+					<div class="b-header__item b-header__location">
+						<div id="location" class="location">
+						    <a href="#" class="location__current_city" data-toggle="modal" data-target="#modalLocation">
+						        <i class="b-header__icon b-header__icon--pin"></i>
+						        <span class="js-current-city">Москва и МО</span>
+						    </a>
+
+						    <div class="modal fade" id="modalLocation" aria-hidden="true" style="display: none;">
+						        <div class="modal-dialog">
+						            <div class="modal-content">
+						                <span class="modal-close" data-dismiss="modal"></span>
+						                <div class="modal-body">
+											<div class="location__select">
+						                        <div class="row">
+						                            <div class="col-xs-4">
+						                                <div class="location__list--item js-select-city js-selected" data-city-id="671" data-city-phone="+7 (495) 134-68-68" onclick="return false;">
+						                                    Москва и МО  
+						                                </div>
+						                            </div>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>
+						        </div>
+						    </div>
+						</div>
+					</div>
+				</div>
+				<div class="b-header__right">
+					<div class="b-header__right">
+                		<div class="b-header__item b-header__callback">
+              
+							<div class="callback">
+							    <a href="javascript:void(0);" class="callback__btn" data-toggle="modal" data-target="#modalCallback">
+							        <i class="b-header__icon b-header__icon--call"></i>
+							    </a>
+
+							    <div class="modal fade" id="modalCallback">
+							        <div class="modal-dialog modal-sm">
+							            <div class="modal-content">
+							                <span class="modal-close" data-dismiss="modal"></span>
+							                <div id="callbackBoxForm">
+							                    <div class="modal-header">Обратный звонок</div>
+							                    <div class="modal-body">
+							                        <p>Введите Ваш номер телефона, <br>и мы Вам перезвоним</p>
+
+							                        <form name="callbackForm" class="callback__form">
+							                            <div class="b-form-group">
+							                                <input id="callbackPhone" class="form-control" type="text" placeholder="+7" value="+7 ">
+							                                <span class="callback__form--error errortext">Ошибка! Неверный формат номера</span>
+							                            </div>
+
+							                            <button type="submit" class="btn btn-block btn-green cpjs__btn" style="height: 46px;"><span class="cpjs__text">Заказать звонок</span><span class="cpjs__loader"><i></i><i></i><i></i><i></i></span></button>
+							                        </form>
+							                    </div>
+							                </div>
+							                <div id="callbackBoxSuccess" style="display: none">
+							                    <div class="modal-header">Спасибо!</div>
+							                    <div class="modal-body">
+							                        <p>Наш менеджер свяжется с Вами в течение 30 секунд </p>
+							                    </div>
+							                </div>
+							            </div>
+							        </div>
+							    </div>
+							</div>                
+						</div>
+		                <div class="b-header__item b-header__chat">
+		                    <a href="#" class="js-openline-chat">
+		                        <i class="b-header__icon b-header__icon--chat"></i>
+		                    </a>
+		                </div>
+		                <div class="b-header__item b-header__phone">
+		                    <span class="js-city-phone">
+		                        +7 (495) 134-68-68                    
+		                    </span>
+		                </div>
+          
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="jsHeaderMenu" class="b-header__menu">
+			<div class="b-container">
+				<div class="b-menu">
+				    <ul class="b-menu__list">
+				        <li class="b-menu__list--item">
+				            <a href="http://job.carprice.ru/" target="_blank">Работа у нас</a>
+				        </li>
+				        <li class="b-menu__list--item">
+				            <a href="https://www.carprice.ru/about/how-works/">Как это работает</a>
+				        </li>
+				        <li class="b-menu__list--item">
+				            <a href="https://www.carprice.ru/about/faq/what-documents-are-required/">Необходимые документы</a>
+				        </li>
+				        <li class="b-menu__list--item">
+				            <a href="https://www.carprice.ru/about/testimonials/" class="js-scroll-to-block" data-target="#blockReviews">Отзывы</a>
+				        </li>
+				        <li class="b-menu__list--item">
+				            <a href="https://www.carprice.ru/about/contact/">Контакты</a>
+				        </li>
+				        <li class="b-menu__list--item">
+				            <a href="https://dealer.carprice.ru/" target="_blank">Для автодилеров</a>
+				        </li>
+				    </ul>
+				</div>
+	        </div>
+	    </div>
+	</header>
+	<div class="b-banner">
+		<video class="b-banner__video" src="car.mp4" frameborder="0" allowfullscreen></video>
+		<div class="b-container">
+			<div class="b-banner__header ">
+				<div class="b-banner__title">Мы гарантированно продадим ваше авто.</div>
+				<p class="b-banner__subtitle">Автодилеры купят его на <span class="green">аукционе</span> по самой высокой цене.</p>
+				<button class="btn-green go_to" data-where="#here_to_go">Продать</button>
+			</div>
+			<div class="b-banner__footer">
+				<p class="b-banner__subtitle"><i class="b-banner__play" onclick="playVideo()"></i>Как это работает?</p>
+			</div>
+		</div>
+		<div class="b-banner__back"></div>
+	</div>
+	<div class="b-anketa">
+		<div class="b-container">
+			<div class="b-anketa__information">
+				<div class="b-block__header" id="here_to_go">Продайте свой автомобиль <span class="green">за 3 шага</span></div>
+				<div class="b-anketa__content">
+					<form class="b-anketa__form">
+					  <!-- progressbar -->
+					  <ul class="b-anketa__progressbar">
+					    <li class="active">
+					    	<p>Заполните заявку на оценку авто</p>
+					    </li>
+					    <li>
+					    	<p>Выберите время, удобное для оценки</p>
+					    </li>
+					    <li>
+					    	<p>Приезжайте на осмотр, аукцион и продажу</p>
+					    </li>
+					  </ul>
+					  <div class="b-anketa__steps">
+					  <!-- fieldsets -->
+						  <fieldset class="b-fieldset">
+						  	<div class="b-form-group">
+	                			<div class="b-types">
+	                            	<label class="b-types__item">
+							        	<input name="type_tech" value="0" type="radio" class="hide" title="Легковой" checked>
+							            <span>Легковой</span>
+							        </label>
+							        <label class="b-types__item">
+							            <input name="type_tech" value="2" type="radio" class="hide" title="Мотоцикл">
+							            <span>Мотоцикл</span>
+							        </label>
+							        <label class="b-types__item">
+							            <input name="type_tech" value="3" type="radio" class="hide" title="Скутер">
+							            <span>Скутер</span>
+							        </label>
+							        <label class="b-types__item">
+							            <input name="type_tech" value="9" type="radio" class="hide" title="Коммерческий">
+							            <span>Коммерческий</span>
+							        </label>
+						        </div>
+						    </div>
+						  	<div class="b-anketa__fieldblock">
+								<div class="select-by-search">
+									<input class="select-search-input" placeholder="Марка">
+									<div class="select-search b-marks" data-kind="marks" id="id">
+									</div>
+									<input type="hidden" class="selected" name="id" value="" >
+									<div class="close-selector"></div>
+								</div>
+								<div class="select-by-search">
+									<input class="select-search-input" placeholder="Год">
+									<div class="select-search b-marks" data-kind="year" id="id">
+									</div>
+									<input type="hidden" class="selected" name="id" value="" >
+									<div class="close-selector"></div>
+								</div>
+								<div class="select-by-search">
+									<input class="select-search-input" placeholder="Модель">
+									<div class="select-search b-model" data-kind="models" id="id">
+									</div>
+									<input type="hidden" class="selected" name="id" value="" >
+									<div class="close-selector"></div>
+								</div>
+								<div class="select-by-search">
+							    	<input class="select-search-input" type="e-mail" class="b-e-mail" name="e-mail" placeholder="Ваш e-mail" />
+							    </div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<label class="b-control b-control__checkbox">
+								  		  Я согласен с условиями пользовательского соглашения и положения конфиденциальности
+									      <input checked="checked" type="checkbox">
+									      <div class="b-control__indicator"></div>
+								    </label>
+							    </div>
+								<div class="col-xs-6">
+									<div class="b-control__buttonblock">
+										<submit type="button" name="next" class="next action-button btn-green" value="Далее">Далее</submit>
+									</div>
+								</div>
+							</div>
+						  </fieldset>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="b-steps">
+		<div class="b-container">
+			<div class="row">
+				<div class="b-col-4">
+					<div class="b-steps__item">
+						<div class="b-steps__img b-img__inspector"></div>
+						<div class="b-steps__title"><b>Бесплатная</b> диагностика</div>
+						<div class="b-steps__text">Мы проведем осмотр и проверим юридическую чистоту авто абсолютно бесплатно.</div>
+					</div>
+				</div>
+				<div class="b-col-4">
+					<div class="b-steps__item">
+						<div class="b-steps__img b-img__auction"></div>
+						<div class="b-steps__title"><b>Бесплатный</b> <br> онлайн-аукцион</div>
+						<div class="b-steps__text">Более 23 000 автодилеров будут бороться за право купить Ваш авто, повышая ставки.</div>
+					</div>
+				</div>
+				<div class="b-col-4">
+					<div class="b-steps__item">
+						<div class="b-steps__img b-img__money"></div>
+						<div class="b-steps__title"><b>Деньги сразу</b> <br>после аукциона</div>
+						<div class="b-steps__text">Если Вы согласны с итоговой ценой, то получите всю сумму наличными или на Вашу банковскую карту.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="b-map">
+		<div class="b-map__layer">
+			<div class="b-block__header">Выберите место осмотра</div>
+			<div id="mapBlockCities" class="map__layer--cities b-container">
+        		<div class="map__cities">
+                    <div class="point point_moskva">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="671" data-city-title="Москва и МО">
+	                        <span>Москва и МО</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_sanktpeterburg">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="617" data-city-title="Санкт-Петербург">
+	                        <span>Санкт-Петербург</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_volgograd">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="396" data-city-title="Волгоград">
+	                        <span>Волгоград</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_vologda">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="416" data-city-title="Вологда">
+	                        <span>Вологда</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_voronezh">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="432" data-city-title="Воронеж">
+	                        <span>Воронеж</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_ekaterinburg">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="1009" data-city-title="Екатеринбург">
+	                        <span>Екатеринбург</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_ivanovo">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="449" data-city-title="Иваново">
+	                        <span>Иваново</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_kazan">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="148" data-city-title="Казань">
+	                        <span>Казань</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_kaluga">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="514" data-city-title="Калуга">
+	                        <span>Калуга</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_krasnodar">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="219" data-city-title="Краснодар">
+	                        <span>Краснодар</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_nizhniynovgorod">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="781" data-city-title="Нижний Новгород">
+	                        <span>Нижний Новгород</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_omsk">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="838" data-city-title="Омск">
+	                        <span>Омск</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_orenburg">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="845" data-city-title="Оренбург">
+	                        <span>Оренбург</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_perm">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="880" data-city-title="Пермь">
+	                        <span>Пермь</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_rostovnadonu">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="922" data-city-title="Ростов-на-Дону">
+	                        <span>Ростов-на-Дону</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_samara">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="959" data-city-title="Самара">
+	                        <span>Самара</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_sochi">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="224" data-city-title="Сочи">
+	                        <span>Сочи</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_tver">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="1083" data-city-title="Тверь">
+	                        <span>Тверь</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_ufa">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="24" data-city-title="Уфа">
+	                        <span>Уфа</span>
+	                    </div>
+	                </div>
+	                            <div class="point point_chelyabinsk">
+	                    <div class="point__clickarea js-load-city-map" data-city-id="1147" data-city-title="Челябинск">
+	                        <span>Челябинск</span>
+	                    </div>
+	                </div>
+			    </div>
+			</div>
+			<div class="b-container map__layer--form">
+		        <div class="row">
+		            <div class="col-xs-offset-8 col-xs-4">
+		                <div id="mapCitiesForm" class="city-selection search-list">
+		                    <div class="search-list__title">Выбор города</div>
+		                    <div class="js-search-list">
+		                        <div class="search-list__search">
+		                            <input class="form-control form-control--search js-search-field" placeholder="Введите город">
+		                        </div>
+		                        <div id="mapCitiesList" class="search-list__list">
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="671" data-city-title="Москва и МО">
+		                                    <span>Москва и МО</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="617" data-city-title="Санкт-Петербург">
+		                                    <span>Санкт-Петербург</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="396" data-city-title="Волгоград">
+		                                    <span>Волгоград</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="416" data-city-title="Вологда">
+		                                    <span>Вологда</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="432" data-city-title="Воронеж">
+		                                    <span>Воронеж</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="1009" data-city-title="Екатеринбург">
+		                                    <span>Екатеринбург</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="449" data-city-title="Иваново">
+		                                    <span>Иваново</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="148" data-city-title="Казань">
+		                                    <span>Казань</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="514" data-city-title="Калуга">
+		                                    <span>Калуга</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="219" data-city-title="Краснодар">
+		                                    <span>Краснодар</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="781" data-city-title="Нижний Новгород">
+		                                    <span>Нижний Новгород</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="838" data-city-title="Омск">
+		                                    <span>Омск</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="845" data-city-title="Оренбург">
+		                                    <span>Оренбург</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="880" data-city-title="Пермь">
+		                                    <span>Пермь</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="922" data-city-title="Ростов-на-Дону">
+		                                    <span>Ростов-на-Дону</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="959" data-city-title="Самара">
+		                                    <span>Самара</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="224" data-city-title="Сочи">
+		                                    <span>Сочи</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="1083" data-city-title="Тверь">
+		                                    <span>Тверь</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="24" data-city-title="Уфа">
+		                                    <span>Уфа</span>
+		                                </div>
+		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="1147" data-city-title="Челябинск">
+		                                    <span>Челябинск</span>
+		                                </div>
+		                                                        <div class="search-list__item js-search-no-results" style="display: none">Ничего не найдено</div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div id="mapBranchesForm" class="city-selection city-selection--branch search-list" style="display: none">
+		                    <div class="search-list__title">Выбор филиала</div>
+		                    <div class="js-search-list">
+		                        <div class="search-list__search">
+		                            <input class="form-control form-control--search js-search-field" placeholder="Введите филиал">
+		                        </div>
+		                        <div class="search-list__title js-back-to-cities">
+		                            <i class="fa fa-angle-left"></i>
+		                            <span></span>
+		                        </div>
+		                        <div id="mapBranchesList" class="search-list__list"></div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+<!--	<div class="b-clients">
+		<div class="b-container">
+			<div class="b-block__header">Выберите место осмотра</div>
+		</div>
+	</div>-->
+	<div class="b-dealers">
+		<div class="b-container">
+			<div class="row">
+	            <div class="col-xs-8">
+	                <div class="dealer__block app">
+	                    <h3>Станьте дилером автомобилей</h3>
+	                    <div class="dealer__block__desc">
+	                        Получите возможность покупать сотни автомобилей<br>в день по самой привлекательной цене.
+	                    </div>
+	                    <div class="app__img"></div>
+	                    <a href="https://dealer.carprice.ru" target="_blank"><button class="btn-green">Подробнее</button></a>
+	                </div>
+	            </div>
+	            <div class="col-xs-4">
+	            	<div class="dealer__block app">
+	                    <h3>Уже автодилер?</h3>
+	                    <div class="dealer__block__desc">
+	                        Для вас есть выгодные предложения в новом приложении для ios и android
+	                    </div>
+	                    <div class="app__links clear-float">
+	                        <a href="https://itunes.apple.com/ru/app/carprice-%D0%B0%D0%B2%D1%82%D0%BE%D0%B4%D0%B8%D0%BB%D0%B5%D1%80/id982749136?mt=8" target="_blank"></a>
+	                        <a href="https://play.google.com/store/apps/details?id=ru.dealer.carprice.app&amp;hl=ru" target="_blank"></a>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+		</div>
+	</div>
+	<div class="b-block b-block__white b-questions">
+		<div class="b-container">
+			<div class="b-block__header">Остались вопросы?</div>
+			<div class="row">
+				<div class="col-xs-4">
+					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion3">
+                        <span>Я могу продать на вторичном рынке и получить более высокую цену.</span>
+                        <i class="questions__angle fa fa-angle-right"></i>
+                    </div>
+                    <div id="modalQuestion3" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <span class="modal-close" data-dismiss="modal"></span>
+                                <div class="modal-header">Я могу продать на вторичном рынке и получить более высокую цену.</div>
+                                <div class="modal-body">
+                                    <p>Самостоятельная продажа - это долгий процесс, сопряженный с потерей времени
+                                        и опасностью. Каждый день мы узнаем о новых мошеннических схемах, которые
+                                        могут оставить Вас без денег и без автомобиля.</p>
+                                    <p>Зачем рисковать и тратить нервы, если в CarPrice за пару часов Вы можете
+                                        получить адекватную цену?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-xs-4">
+					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion1">
+                        <span>Но я же могу получить более выгодную цену в Trade-In.</span>
+                        <i class="questions__angle fa fa-angle-right"></i>
+                    </div>
+                    <div id="modalQuestion1" class="modal fade" style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <span class="modal-close" data-dismiss="modal"></span>
+                                <div class="modal-header">Но я же могу получить более выгодную цену в Trade-In.</div>
+                                <div class="modal-body">
+                                    <p>В CarPrice всего за пару часов Вы можете получить цену в среднем на 20% выше,
+                                        чем в trade-in. При этом Вы не связаны обязательствами по приобретению
+                                        нового авто, которое Вам не подходит.</p>
+                                    <p>В CarPrice Вы диктуете свои условия, а мы с радостью их выполняем абсолютно
+                                        бесплатно.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-xs-4">
+					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion2">
+                        <span>Но можно же немного подождать и продать дороже.</span>
+                        <i class="questions__angle fa fa-angle-right"></i>
+                    </div>
+                    <div id="modalQuestion2" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <span class="modal-close" data-dismiss="modal"></span>
+                                <div class="modal-header">Но можно же немного подождать и продать дороже.</div>
+                                <div class="modal-body">
+                                    <p>Ни для кого не секрет, что стоимость авто уменьшается с возрастом. Поэтому,
+                                        ожидая сверхприбыльное предложение, Вы упускаете реальные деньги, которые
+                                        можете получить прямо сейчас.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4">
+					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion3">
+                        <span>Я могу продать на вторичном рынке и получить более высокую цену.</span>
+                        <i class="questions__angle fa fa-angle-right"></i>
+                    </div>
+                    <div id="modalQuestion3" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <span class="modal-close" data-dismiss="modal"></span>
+                                <div class="modal-header">Я могу продать на вторичном рынке и получить более высокую цену.</div>
+                                <div class="modal-body">
+                                    <p>Самостоятельная продажа - это долгий процесс, сопряженный с потерей времени
+                                        и опасностью. Каждый день мы узнаем о новых мошеннических схемах, которые
+                                        могут оставить Вас без денег и без автомобиля.</p>
+                                    <p>Зачем рисковать и тратить нервы, если в CarPrice за пару часов Вы можете
+                                        получить адекватную цену?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-xs-4">
+					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion1">
+                        <span>Но я же могу получить более выгодную цену в Trade-In.</span>
+                        <i class="questions__angle fa fa-angle-right"></i>
+                    </div>
+                    <div id="modalQuestion1" class="modal fade" style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <span class="modal-close" data-dismiss="modal"></span>
+                                <div class="modal-header">Но я же могу получить более выгодную цену в Trade-In.</div>
+                                <div class="modal-body">
+                                    <p>В CarPrice всего за пару часов Вы можете получить цену в среднем на 20% выше,
+                                        чем в trade-in. При этом Вы не связаны обязательствами по приобретению
+                                        нового авто, которое Вам не подходит.</p>
+                                    <p>В CarPrice Вы диктуете свои условия, а мы с радостью их выполняем абсолютно
+                                        бесплатно.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-xs-4">
+					<div class="questions__item" data-toggle="modal" data-target="#modalQuestion2">
+                        <span>Но можно же немного подождать и продать дороже.</span>
+                        <i class="questions__angle fa fa-angle-right"></i>
+                    </div>
+                    <div id="modalQuestion2" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <span class="modal-close" data-dismiss="modal"></span>
+                                <div class="modal-header">Но можно же немного подождать и продать дороже.</div>
+                                <div class="modal-body">
+                                    <p>Ни для кого не секрет, что стоимость авто уменьшается с возрастом. Поэтому,
+                                        ожидая сверхприбыльное предложение, Вы упускаете реальные деньги, которые
+                                        можете получить прямо сейчас.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+			<div class="b-questions__button"><button class="btn-green">Задать свой вопрос</button></div>
+		</div>
+	</div>
+	<div class="b-press">
+	    <div class="b-container">
+	        <div class="b-menu__list">
+	            <div class="b-menu__list--item press__item press__item--lenta"></div>
+	            <div class="b-menu__list--item press__item press__item--rbk"></div>
+	            <div class="b-menu__list--item press__item press__item--vedomosti"></div>
+	            <div class="b-menu__list--item press__item press__item--interfax"></div>
+	            <div class="b-menu__list--item press__item press__item--bfm"></div>
+	        </div>
+	    </div>
+	</div>
+	<footer>
+            <div class="b-footer">
+                <div class="b-block__white b-footer__b-menu">
+                    <div class="b-container">
+                        <div class="b-menu">
+						    <ul class="b-menu__list">
+						        <li class="b-menu__list--item">
+						            <a href="http://job.carprice.ru/" target="_blank">Работа у нас</a>
+						        </li>
+						        <li class="b-menu__list--item">
+						            <a href="https://www.carprice.ru/about/how-works/">Как это работает</a>
+						        </li>
+						        <li class="b-menu__list--item">
+						            <a href="https://www.carprice.ru/about/faq/what-documents-are-required/">Необходимые документы</a>
+						        </li>
+						        <li class="b-menu__list--item">
+						            <a href="https://www.carprice.ru/about//testimonials/" class="js-scroll-to-block" data-target="#blockReviews">Отзывы</a>
+						        </li>
+						        <li class="b-menu__list--item">
+						            <a href="https://www.carprice.ru/about/contact/">Контакты</a>
+						        </li>
+						        <li class="b-menu__list--item">
+						            <a href="https://dealer.carprice.ru/" target="_blank">Для автодилеров</a>
+						        </li>
+						    </ul>
+						</div>
+                    </div>
+                </div>
+
+                <div class="b-block__white  b-footer__content">
+                    <div class="b-container">
+                        <div class="row">
+                            <div class="col-xs-4 b-footer__column">
+                                <p>© 2014-2017 ООО «Селаникар», официальный сайт, все права защищены.</p>
+                                <a href="/m/" class="b-footer__link">Мобильная версия сайта</a>
+                            </div>
+                            <div class="col-xs-4 b-footer__column">
+                                <div class="social">
+                                    <div class="col-xs-3">
+                                        <a href="http://vk.com/carprice_russia" target="_blank" class="social__item">
+                                            <i class="fa fa-vk"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <a href="https://www.facebook.com/carprice.ru" target="_blank" class="social__item">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <a href="http://www.youtube.com/channel/UCrJ2zHfHGpXLcas9eNOUoOA/feed" target="_blank" class="social__item">
+                                            <i class="fa fa-youtube-play"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <a href="https://instagram.com/carprice/" target="_blank" class="social__item">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 b-footer__column">
+                                <p>Россия, 127015, г. Москва, ул. Бутырская д. 76, стр. 1, тел.
+                                    <span class="js-city-phone">
+                                        +7 (495) 134-68-68                                    </span>.
+                                </p>
+                                <a href="#" class="b-footer__link" data-toggle="modal" data-target="#modalFeedback">Обратная связь</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="modal fade" id="modalFeedback">
+				    <div class="modal-dialog modal-sm">
+				        <div class="modal-content">
+				            <span class="modal-close" data-dismiss="modal"></span>
+				            <div class="modal-header">Связаться с нами</div>
+				            <div class="modal-body">
+				                
+								<div class="js-feedback-success" style="display: none">
+				  				  Спасибо! Ваше сообщение принято.</div>
+
+								<div class="js-feedback-form">
+    							<div class="form-errors js-feedback-errors"></div>
+
+    							<br>
+
+							    <form name="feedbackForm" action="/main/" method="POST">
+							        <input name="sessid" id="sessid" value="fda96a1be88795b0551bca25ded89c22" type="hidden">        <div class="b-form-group">
+							            <input class="form-control" name="user_name" value="" placeholder="Ваше имя" type="text">
+							        </div>
+
+							        <div class="b-form-group">
+							            <input class="form-control" name="user_email" value="" placeholder="Ваш E-mail" type="text">
+							        </div>
+
+							        <div class="b-form-group">
+							            <textarea class="form-control" name="MESSAGE" rows="3" placeholder="Сообщение"></textarea>
+							        </div>
+
+							                    <div class="b-form-group js-captcha-field">
+							                <input name="captcha_sid" value="0d9aed62cb33519bd03da0068eaab92f" type="hidden">
+							                <div class="input-group">
+							                    <span class="input-group-addon">
+							                        <img src="/local/tools/captcha.php?captcha_sid=0d9aed62cb33519bd03da0068eaab92f&amp;bgcolor=230,236,242&amp;width=100&amp;height=46" class="js-captcha-img" alt="CAPTCHA" height="46" width="100">
+							                    </span>
+							                    <input class="form-control" name="captcha_word" size="30" maxlength="50" placeholder="Слово на картинке" type="text">
+							                </div>
+							            </div>
+							        
+							        <input name="form" value="feedback" type="hidden">
+							        <input name="PARAMS_HASH" value="9e63140d77a36b8e76628c44a4192d40" type="hidden">
+							        <input name="submit" value="Отправить" type="hidden">
+							        <button class="btn btn-green btn-block cpjs__btn" type="submit" style="height: 46px;"><span class="cpjs__text">Отправить</span><span class="cpjs__loader"><i></i><i></i><i></i><i></i></span></button>
+							    </form>
+							</div>      
+						</div>
+			        </div>
+			    </div>
+			</div>
+    </footer>
+</body>
+
+<script type="text/javascript" src="js/select_1.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+<script>
+	$(document).ready(function(){
+					//jQuery time
+			var current_fs, next_fs, previous_fs; //fieldsets
+			var left, opacity, scale; //fieldset properties which we will animate
+			var animating; //flag to prevent quick multi-click glitches
+
+			$(".next").click(function(){
+				if(animating) return false;
+				animating = true;
+				
+				current_fs = $(this).parents('.b-fieldset');
+				console.log(current_fs.attr('class'))
+				next_fs = current_fs.next();
+				
+				//activate next step on progressbar using the index of next_fs
+				$(".b-anketa__progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+				
+				//show the next fieldset
+				next_fs.show(); 
+				//hide the current fieldset with style
+				current_fs.animate({opacity: 0}, {
+					step: function(now, mx) {
+						//as the opacity of current_fs reduces to 0 - stored in "now"
+						//1. scale current_fs down to 80%
+						scale = 1 - (1 - now) * 0.2;
+						//2. bring next_fs from the right(50%)
+						left = (now * 50)+"%";
+						//3. increase opacity of next_fs to 1 as it moves in
+						opacity = 1 - now;
+						current_fs.css({
+			        'transform': 'scale('+scale+')',
+			        'position': 'absolute'
+			      });
+						next_fs.css({'left': left, 'opacity': opacity});
+					}, 
+					duration: 800, 
+					complete: function(){
+						current_fs.hide();
+						animating = false;
+					}, 
+					//this comes from the custom easing plugin
+					easing: 'easeInOutBack'
+				});
+			});
+
+			$(".submit").click(function(){
+				return false;
+			});
+
+			$(function() {
+
+			    $(document).on('click', '.js-select-city', function(e) {
+			        e.preventDefault();
+
+			        var cityId = $(this).data('cityId');
+			        var cityPhone = $(this).data('cityPhone');
+			        var cityName = $(this).text();
+
+			        $.cookie('city_id', cityId, {
+			            path: '/'
+			        });
+
+			        $(document).trigger('city.changed', {
+			            'id': cityId,
+			            'phone': cityPhone,
+			            'name': cityName
+			        });
+			    });
+
+			    $(document).on('city.changed', function(e, params) {
+			        if (params) {
+			            var $locationBlock = $('#location');
+			            var $currentCity = $locationBlock.find('.js-current-city');
+			            var $locationCities = $locationBlock.find('.js-select-city');
+			            var $currentCityInList = $locationBlock.find('.js-select-city[data-city-id=' + params.id + ']');
+
+			            $currentCity.text(params.name);
+			            $locationCities.removeClass('js-selected');
+			            $currentCityInList.addClass('js-selected');
+
+			            $('#modalLocation').modal('hide');
+			        }
+			    })
+
+			});
+
+			
+	})
+</script>
+</html>
