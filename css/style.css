@@ -876,6 +876,7 @@
 		width:100%;
 		display:table;
 		margin-bottom: 50px;
+		border-collapse:collapse;
 	}
 	.row {
 		margin-left: -20px;
@@ -1842,7 +1843,7 @@
   box-sizing: border-box;
   color: #2C3E50;
   font-size: 16px;
-  display:inline-block;
+  display:table-cell;
   width:100%;
 }
 .select-search-input:focus{
