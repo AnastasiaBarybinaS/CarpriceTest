@@ -8,8 +8,8 @@
         <g id="Carprice_Main" transform="translate(-586.000000, -470.000000)">
             <g id="Group-4" transform="translate(587.000000, 471.000000)">
                 <g id="Play">
-                    <circle id="Oval" stroke="#1FAD49" stroke-width="1" cx="16" cy="16" r="16"></circle>
-                    <polygon id="Path-3" fill="#1FAD49" fill-rule="evenodd" points="12 11 12 21.9476831 22.7095545 16.2032242"></polygon>
+                    <circle id="Oval" stroke="#ffffff" stroke-width="1" cx="16" cy="16" r="16"></circle>
+                    <polygon id="Path-3" fill="#ffffff" fill-rule="evenodd" points="12 11 12 21.9476831 22.7095545 16.2032242"></polygon>
                 </g>
             </g>
         </g>
