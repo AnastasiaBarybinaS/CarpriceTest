@@ -1,3 +1,6 @@
+.reviews {
+  overflow:hidden;
+}
 .yt_reviews__wrapper {
   margin-top:40px;
 }
