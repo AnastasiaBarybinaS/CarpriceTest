@@ -29,7 +29,7 @@ $(document).ready(function(){
          e.preventDefault();
          if($('.not_error').length == 5)
          {
-          alert("yes")
+          alert("Валидация прошла успешно")
         }
        else
        {

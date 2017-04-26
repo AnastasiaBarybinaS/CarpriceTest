@@ -772,10 +772,11 @@
 	  border: 0 none;
 	  border-radius: 5px;
 	  cursor: pointer;
-	  padding: 20px 60px;
+	  padding: 5px 60px;
 	  font-size: 14px;
 	  font-weight: bold;
 	  line-height: 42px;
+	  text-transform: uppercase;
 	}
 
 	.b-anketa__progressbar {
@@ -1807,13 +1808,16 @@
     height: 55px;
     vertical-align: bottom;
     display: inline-block;
-    width: 180px;
+    width: 200px;
 }
 .select-by-search:nth-child(2){
 	width: 130px;
 }
 .select-by-search:nth-child(3){
 	width: 240px;
+}
+.select-by-search:last-child{
+	width:220px;
 }
 .select-by-search > * {
   box-sizing: border-box;
@@ -1831,6 +1835,9 @@
   font-size: 16px;
   display:inline-block;
   width:100%;
+}
+.select-search-input:focus{
+	outline-color:#19ab3b;
 }
 .select-search-input.error,
 .b-control__indicator.error{
@@ -1877,8 +1884,7 @@
   z-index: 0;
 }
 .b-anket__row{
-	display: table-row;
-	height:80px;
+	padding:0 35px;
 }
 .b-anket__row .select-by-search{
 	width:20%;
