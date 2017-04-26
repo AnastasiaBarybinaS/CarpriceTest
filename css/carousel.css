@@ -472,7 +472,7 @@
 
 .owl-carousel .owl-stage-outer {
   position: relative;
- /* overflow: hidden;*/
+  overflow: hidden;
   -webkit-transform: translate3d(0, 0, 0);
 }
 
@@ -481,7 +481,7 @@
   float: left;
   -webkit-backface-visibility: hidden;
   -webkit-touch-callout: none;
-  margin-right: 20px!important;
+  margin-right: 20px;
 }
 
 .owl-carousel .owl-item img {

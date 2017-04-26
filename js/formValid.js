@@ -20,6 +20,13 @@ $(document).ready(function(){
         if (val.length==1) {
           $('.b-control__indicator').removeClass('error').addClass('not_error');} else { $('.b-control__indicator').removeClass('not_error').addClass('error'); }
     });
+    $('#agreement').click(function(){
+        if ($('#agreement:checked').length==1) {
+          $('#send').prop('disabled', false);
+        } else {
+          $('#send').prop('disabled', true);
+        }
+    });
     $('input').click(function(){
       $(this).removeClass('error');
     });

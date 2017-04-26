@@ -5,7 +5,7 @@ $(document).ready(function(){
       year = $('[data-kind="year"]');
     
     function infoGet(url, field){
-      $.get( "http://client.dev1.carprice.io/"+url, function( data ) {
+      $.get( "https://client.dev1.carprice.io/"+url, function( data ) {
         for (var i=0; i<data.data.length;i++) {
           field.append('<option value="'+data.data[i].value+'">'+data.data[i].text+'</option>')
         }
@@ -40,7 +40,7 @@ $(document).ready(function(){
       },100);
     });
     function locationGet(){
-      $.get( "http://client.dev1.carprice.io/api/v1.0.0/cities?api_token=bl1xzytbboh9qfqv5cfurx2fl10xspe1", function( data ) {
+      $.get( "https://client.dev1.carprice.io/api/v1.0.0/cities?api_token=bl1xzytbboh9qfqv5cfurx2fl10xspe1", function( data ) {
         console.log(data.cities);
         for (var i=0; i<data.cities.length;i++) {
           $('.location__select .row').append('<div class="col-xs-4">'+

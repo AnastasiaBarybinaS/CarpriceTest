@@ -15,7 +15,20 @@
 
 
   <script>
-  	var plaly = true;
+  	var plaly = true, stop;
+  	function stopPlayer(){
+				$('.b-banner__video').get(0).pause();
+				$('.b-banner__play').removeClass("pause");
+				plaly = true;
+				setTimeout(function(){
+					$('.b-banner__header').removeClass('fadeOutUp').addClass('fadeInDown');
+					$('.b-banner__header').addClass("animated");
+					$('.b-anketa .b-container').removeClass('inDown').addClass('inUp');
+					$('.b-anketa .b-container').addClass("animated");
+					$('.b-banner').removeClass('b-light');
+					clearInterval(stop);
+				},200)
+			}
 
 	function playVideo(){
 		console.log("playlu");
@@ -27,32 +40,18 @@
 			setTimeout(function(){
 				$('.b-banner__video').get(0).play();
 				$('.b-banner__play').addClass("pause");
+				$('.b-banner').addClass('b-light');
 				plaly = false;
 			},200)
+			stop = setTimeout(function(){
+				stopPlayer();
+			},110000)
 			
 		} else {
-			$('.b-banner__video').get(0).pause();
-			$('.b-banner__play').removeClass("pause");
-			plaly = true;
-			setTimeout(function(){
-				$('.b-banner__header').removeClass('fadeOutUp').addClass('fadeInDown');
-				$('.b-banner__header').addClass("animated");
-				$('.b-anketa .b-container').removeClass('inDown').addClass('inUp');
-				$('.b-anketa .b-container').addClass("animated");
-			},200)
+			stopPlayer();
 		}
 	}
   </script>
-	<script type="text/javascript">
-		if(navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-		            var latitude = position.coords.latitude;
-		            var longitude = position.coords.longitude;
-
-		});
-		 
-		}
-	</script>
 </head>
 <body class="main">
 	<header>
@@ -301,7 +300,7 @@
 	</div>
 	<div class="b-map">
 		<div class="b-map__layer">
-			<div class="b-block__header">Выберите место осмотра</div>
+			<div class="b-block__header">Наши филиалы</div>
 			<div id="mapBlockCities" class="map__layer--cities b-container">
         		<div class="map__cities">
                     <div class="point point_moskva">
@@ -410,11 +409,8 @@
 		        <div class="row">
 		            <div class="col-xs-offset-8 col-xs-4">
 		                <div id="mapCitiesForm" class="city-selection search-list">
-		                    <div class="search-list__title">Выбор города</div>
+		                    <div class="search-list__title">Города</div>
 		                    <div class="js-search-list">
-		                        <div class="search-list__search">
-		                            <input class="form-control form-control--search js-search-field" placeholder="Введите город">
-		                        </div>
 		                        <div id="mapCitiesList" class="search-list__list">
 		                                                            <div class="search-list__item js-load-city-map js-search-item" data-city-id="671" data-city-title="Москва и МО">
 		                                    <span>Москва и МО</span>

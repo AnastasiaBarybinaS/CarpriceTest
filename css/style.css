@@ -515,6 +515,9 @@
 	    box-shadow: none;
 	    color: #fff;
 	}
+	.btn-green:disabled {
+		background:rgba(25, 171, 59, 0.55);
+	}
 	.b-button__header button{
 		padding: 0 60px;
 	}     
@@ -552,7 +555,12 @@
 	    position:relative;
 	    overflow:hidden;
 	    min-height:510px;
+	    transition: all .7s ease-in-out;
 	}
+	.b-banner.b-light {
+		background: rgba(15,40,20,.05);
+	}
+
 	.b-banner__back {
 		background:url('../img/back3.jpg') no-repeat;
 		background-size:cover;
@@ -957,7 +965,7 @@
 	.ymap.map__branches {
 	    position: absolute;
 	    top: 0;
-	    left: 0;
+	    left: 120px;
 	    right: 0;
 	    bottom: 0;
 	}
