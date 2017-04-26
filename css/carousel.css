@@ -1,5 +1,6 @@
 .reviews {
   overflow:hidden;
+  padding-bottom: 0;
 }
 .yt_reviews__wrapper {
   margin-top:40px;
