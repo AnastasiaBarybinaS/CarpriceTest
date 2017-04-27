@@ -786,6 +786,7 @@
 	  font-weight: bold;
 	  line-height: 42px;
 	  text-transform: uppercase;
+	  outline:0;
 	}
 
 	.b-anketa__progressbar {
@@ -1846,6 +1847,10 @@
   display:table-cell;
   width:100%;
 }
+::-webkit-input-placeholder {color:#c0392b;}
+::-moz-placeholder          {color:#c0392b;}/* Firefox 19+ */
+:-moz-placeholder           {color:#c0392b;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#c0392b;}
 .select-search-input:focus{
 	outline-color:#19ab3b;
 }
