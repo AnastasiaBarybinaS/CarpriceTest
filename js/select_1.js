@@ -7,7 +7,7 @@ $(document).ready(function(){
     function infoGet(url, field){
       $.get( "http://client.dev1.carprice.io/"+url, function( data ) {
         for (var i=0; i<data.data.length;i++) {
-          field.append('<option value="'+data.data[i].value+'">'+data.data[i].text+'</option>')
+          field.append('<div value="'+data.data[i].value+'">'+data.data[i].text+'</div>')
         }
     });
     }infoGet(url,marks);
