@@ -7,7 +7,7 @@ $(document).ready(function(){
     function infoGet(url, field){
       $.get( "http://client.dev1.carprice.io/"+url, function( data ) {
         for (var i=0; i<data.data.length;i++) {
-          field.append('<option value="'+data.data[i].value+'">'+data.data[i].text+'</option>')
+          field.append('<div value="'+data.data[i].value+'">'+data.data[i].text+'</div>')
         }
     });
     }infoGet(url,marks);
@@ -61,7 +61,7 @@ $(document).ready(function(){
     var search_for = $(this).val().trim();
     search_for = search_for.charAt(0).toUpperCase() + search_for.substr(1);
     selector.find('div').addClass('hidden');
-    var matches = selector.find('option:contains("'+search_for+'")');
+    var matches = selector.find('div:contains("'+search_for+'")');
     selector.find('.no-results').remove();
     if (matches.length==0){
       selector.append('<div class="unselectable no-results">No results.</div>')
