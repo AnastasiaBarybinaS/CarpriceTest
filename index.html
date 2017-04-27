@@ -11,47 +11,6 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-
-
-
-  <script>
-  	var plaly = true, stop;
-  	function stopPlayer(){
-				$('.b-banner__video').get(0).pause();
-				$('.b-banner__play').removeClass("pause");
-				plaly = true;
-				setTimeout(function(){
-					$('.b-banner__header').removeClass('fadeOutUp').addClass('fadeInDown');
-					$('.b-banner__header').addClass("animated");
-					$('.b-anketa .b-container').removeClass('inDown').addClass('inUp');
-					$('.b-anketa .b-container').addClass("animated");
-					$('.b-banner').removeClass('b-light');
-					clearInterval(stop);
-				},200)
-			}
-
-	function playVideo(){
-		console.log("playlu");
-		if (plaly){
-			$('.b-banner__header').removeClass('fadeInDown').addClass('fadeOutUp');
-			$('.b-banner__header').addClass("animated");
-			$('.b-anketa .b-container').removeClass('inUp').addClass('inDown');
-			$('.b-anketa .b-container').addClass("animated");
-			setTimeout(function(){
-				$('.b-banner__video').get(0).play();
-				$('.b-banner__play').addClass("pause");
-				$('.b-banner').addClass('b-light');
-				plaly = false;
-			},200)
-			stop = setTimeout(function(){
-				stopPlayer();
-			},110000)
-			
-		} else {
-			stopPlayer();
-		}
-	}
-  </script>
 </head>
 <body class="main">
 	<header>
@@ -227,7 +186,7 @@
 						  	<div class="b-anketa__fieldblock">
 								<div class="select-by-search">
 									<input id="marks" class="select-search-input" placeholder="Марка">
-									<div class="select-search b-marks" data-kind="marks" id="id">
+									<div class="select-search b-marks" data-kind="marks">
 
 									</div>
 									<input type="hidden" class="selected" name="id" value="" >
@@ -969,102 +928,13 @@
 			</div>
     </footer>
 </body>
-
-<script type="text/javascript" src="js/select_1.js"></script>
-<script type="text/javascript" src="js/formValid.js"></script>
 <script type="text/javascript" src="js/owl.carousel.min.js"></script>
 <script type="text/javascript" src="js/fancybox.min.js"></script>
+<script type="text/javascript" src="js/select_1.js"></script>
+<script type="text/javascript" src="js/formValid.js"></script>
+<script type="text/javascript" src="js/form.js"></script>
 <script type="text/javascript" src="js/map.js"></script>
+<script type="text/javascript" src="js/videoplay .js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 
-<script>
-	$(document).ready(function(){
-					//jQuery time
-			var current_fs, next_fs, previous_fs; //fieldsets
-			var left, opacity, scale; //fieldset properties which we will animate
-			var animating; //flag to prevent quick multi-click glitches
-
-			$(".next").click(function(){
-				if(animating) return false;
-				animating = true;
-				
-				current_fs = $(this).parents('.b-fieldset');
-				console.log(current_fs.attr('class'))
-				next_fs = current_fs.next();
-				
-				//activate next step on progressbar using the index of next_fs
-				$(".b-anketa__progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-				
-				//show the next fieldset
-				next_fs.show(); 
-				//hide the current fieldset with style
-				current_fs.animate({opacity: 0}, {
-					step: function(now, mx) {
-						//as the opacity of current_fs reduces to 0 - stored in "now"
-						//1. scale current_fs down to 80%
-						scale = 1 - (1 - now) * 0.2;
-						//2. bring next_fs from the right(50%)
-						left = (now * 50)+"%";
-						//3. increase opacity of next_fs to 1 as it moves in
-						opacity = 1 - now;
-						current_fs.css({
-			        'transform': 'scale('+scale+')',
-			        'position': 'absolute'
-			      });
-						next_fs.css({'left': left, 'opacity': opacity});
-					}, 
-					duration: 800, 
-					complete: function(){
-						current_fs.hide();
-						animating = false;
-					}, 
-					//this comes from the custom easing plugin
-					easing: 'easeInOutBack'
-				});
-			});
-
-			$(".submit").click(function(){
-				return false;
-			});
-
-			$(function() {
-
-			    $(document).on('click', '.js-select-city', function(e) {
-			        e.preventDefault();
-
-			        var cityId = $(this).data('cityId');
-			        var cityPhone = $(this).data('cityPhone');
-			        var cityName = $(this).text();
-
-			        $.cookie('city_id', cityId, {
-			            path: '/'
-			        });
-
-			        $(document).trigger('city.changed', {
-			            'id': cityId,
-			            'phone': cityPhone,
-			            'name': cityName
-			        });
-			    });
-
-			    $(document).on('city.changed', function(e, params) {
-			        if (params) {
-			            var $locationBlock = $('#location');
-			            var $currentCity = $locationBlock.find('.js-current-city');
-			            var $locationCities = $locationBlock.find('.js-select-city');
-			            var $currentCityInList = $locationBlock.find('.js-select-city[data-city-id=' + params.id + ']');
-
-			            $currentCity.text(params.name);
-			            $locationCities.removeClass('js-selected');
-			            $currentCityInList.addClass('js-selected');
-
-			            $('#modalLocation').modal('hide');
-			        }
-			    })
-
-			});
-
-			
-	})
-</script>
 </html>

@@ -36,12 +36,22 @@ $(document).ready(function(){
          e.preventDefault();
          if($('.not_error').length == 5)
          {
-          alert("Валидация прошла успешно")
-        }
-       else
-       {
-          return false;
-       }
+          alert("Валидация прошла успешно");
+          //объект значений 1 шага
+          var obj = {
+              brand: $('[data-kind="marks"] option.active').attr("value"),
+              year: $('[data-kind="year"] option.active').attr("value"),
+              model:$('[data-kind="models"] option.active').attr("value")
+          };
+           
+          var serialObj = JSON.stringify(obj); //сериализуем 
+          localStorage.setItem("firstStep", serialObj); //запиcываем данные первого шага в хранилище
+          console.log(localStorage.getItem("firstStep"));
+         }
+         else
+         {
+            return false;
+         }
 
    }); // end submit()
 
