@@ -39,9 +39,9 @@ $(document).ready(function(){
           alert("Валидация прошла успешно");
           //объект значений 1 шага
           var obj = {
-              brand: $('[data-kind="marks"] option.active').attr("value"),
-              year: $('[data-kind="year"] option.active').attr("value"),
-              model:$('[data-kind="models"] option.active').attr("value")
+              brand: $('[data-kind="marks"] div.active').attr("value"),
+              year: $('[data-kind="year"] div.active').attr("value"),
+              model:$('[data-kind="models"] div.active').attr("value")
           };
            
           var serialObj = JSON.stringify(obj); //сериализуем 

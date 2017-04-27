@@ -60,11 +60,11 @@ $(document).ready(function(){
     var selector = $(this).next('.select-search');
     var search_for = $(this).val().trim();
     search_for = search_for.charAt(0).toUpperCase() + search_for.substr(1);
-    selector.find('option').addClass('hidden');
+    selector.find('div').addClass('hidden');
     var matches = selector.find('option:contains("'+search_for+'")');
     selector.find('.no-results').remove();
     if (matches.length==0){
-      selector.append('<option class="unselectable no-results">No results.</option>')
+      selector.append('<div class="unselectable no-results">No results.</div>')
     }
     matches.removeClass('hidden');
   });
@@ -75,7 +75,7 @@ $(document).ready(function(){
      selector_container=$(this).closest('.select-by-search');
     selector_container.find('input.select-search-input').val(text);
     //set this item as "active" and place it in the first spot
-    selector_container.find('option').removeClass('active');
+    selector_container.find('div').removeClass('active');
     $(this).addClass('active').prependTo(selector_container.find('.select-search'));
     //collapse the selector
     selector_container.find('.select-search').css('display', 'none');
